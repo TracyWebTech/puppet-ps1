@@ -9,10 +9,10 @@ class ps1 (
   }
 
   $force_color_prompt_cmd = "/bin/sed -i -re '/force_color_prompt=yes/ s/^#//'"
-  $force_color_prompt_condition = 'grep "#force_color_prompt"'
+  $force_color_prompt_condition = '/bin/grep "#force_color_prompt"'
 
   $ps1_color_cmd = "/bin/sed -i -re 's/01;3[1-3]m/01;3${color_code}m/'"
-  $ps1_color_condition = "grep '01;3${color_code}m'"
+  $ps1_color_condition = "/bin/grep '01;3${color_code}m'"
 
   $skel_path = '/etc/skel/.bashrc'
   $root_path = '/root/.bashrc'
