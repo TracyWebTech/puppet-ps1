@@ -8,6 +8,10 @@ class ps1 (
     default => '1'
   }
 
+  file { '/etc/bash_completion.d/ps1':
+    content => "PS1='${debian_chroot:+($debian_chroot)}\[\033[01;3${color_code}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '",
+  }
+
   if $::operatingsystem == 'ubuntu' {
     $root_path = '/root/.bashrc'
 
@@ -25,10 +29,6 @@ class ps1 (
 
     exec { "$ps1_color_cmd $root_path":
       unless => "$ps1_color_condition $root_path",
-    }
-
-    file { '/etc/bash_completion.d/ps1':
-      content => "PS1='${debian_chroot:+($debian_chroot)}\[\033[01;3${color_code}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '",
     }
   }
 }
