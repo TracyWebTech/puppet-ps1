@@ -9,7 +9,7 @@ class ps1 (
   }
 
   file { '/etc/bash_completion.d/ps1':
-    content => join(['PS1="${debian_chroot:+($debian_chroot)}\[\033[01;3', $color_code, 'm\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "']),
+    content => join(['PS1=\'${debian_chroot:+($debian_chroot)}\[\033[01;3', $color_code, 'm\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ \'']),
   }
 
   if $::operatingsystem == 'ubuntu' {
