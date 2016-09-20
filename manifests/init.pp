@@ -2,10 +2,15 @@ class ps1 (
   $color = 'red'
 ) {
   $color_code = $color ? {
-    'red' => '1',
-    'green' => '2',
+    'gray'   => '0',
+    'red'    => '1',
+    'green'  => '2',
     'yellow' => '3',
-    default => '1'
+    'blue'   => '4',
+    'pink'   => '5',
+    'cyan'   => '6',
+    'white'  => '7',
+    default  => '1'
   }
 
   file { '/etc/bash_completion.d/ps1':
